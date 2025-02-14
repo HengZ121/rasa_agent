@@ -1,0 +1,21 @@
+flows:
+  pattern_chitchat:
+    description: Conversation repair flow for off-topic interactions that won't disrupt the main conversation. should not respond to greetings or anything else for which there is a flow defined
+    name: pattern chitchat
+    steps:
+      - action: utter_free_chitchat_response
+  pattern_travel:
+    description: Flow for handling travel information; user's first yes or no answer should trigger this flow too
+    name: pattern travel
+    steps:
+      - action: utter_ask_has_travelled
+  pattern_employer:
+    description: Flow for handling employer information
+    name: pattern employer
+    steps:
+      - action: utter_ask_is_self_employed
+  pattern_work:
+    description: Flow for handling work information
+    name: pattern work
+    steps:
+      - action: utter_enter_work_section

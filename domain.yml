@@ -1,0 +1,94 @@
+version: "3.1"
+
+slots:
+  has_travelled:
+    type: bool
+    mappings:
+      - type: from_llm
+  departure_date:
+    type: text
+    mappings:
+      - type: from_llm
+  return_date:
+    type: text
+    mappings:
+      - type: from_llm
+  is_self_employed:
+    type: bool
+    mappings:
+      - type: from_llm
+  employer_name:
+    type: text
+    mappings:
+      - type: from_llm
+  work_start_date:
+    type: text
+    mappings:
+      - type: from_llm
+  hours_worked:
+    type: text
+    mappings:
+      - type: from_llm
+  gross_earning:
+    type: text
+    mappings:
+      - type: from_llm
+  work_end_date:
+    type: text
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_has_travelled:
+    - text: "Have you travelled outside Canada in the past two weeks??"
+
+  utter_ask_departure_date:
+    - text: "When did you leave Canada?"
+
+  utter_ask_return_date:
+    - text: "On which date you returned to Canada?"
+
+  utter_say_byebye:
+    - text: "Okay, bye!"
+
+  utter_wrong_date:
+    - text: "I cannot find the date information in your response, can you please try again?"
+
+  utter_travelled_confirm:
+    - text: "Got you, I hope you enjoyed your trip!"
+
+
+  utter_ask_is_self_employed:
+    - text: "Are you self-employed?"
+  
+  utter_ask_employer_name:
+    - text: "Can you please provide the name of your employer?"
+
+  utter_ask_work_start_date:
+    - text: "When did your full-time work started?"
+
+  utter_ask_hours_worked:
+    - text: "How many hours you have worked for this employer?"
+
+  utter_ask_gross_earning:
+    - text: "What is your gross earning?"
+
+  utter_ask_work_end_date:
+    - text: "When did your work ended?"
+
+  utter_enter_work_section:
+    - text: "Great! Let's talk about your work."
+
+  utter_free_chitchat_response:
+    - text: "placeholder"
+      metadata:
+        rephrase: True
+        rephrase_prompt: |
+          Be very friendly.
+          Check if user has just started the conversation:
+            if so, the assistant should ask user if they have travelled outside Canada in the past two weeks.
+            if no, the assistant should ask user to TRY AGAIN.
+          Context / previous conversation with the user:
+          {{history}}
+          {{current_input}}
+          Suggested AI Response:

@@ -1,0 +1,35 @@
+flows:
+  save_travel_info:
+    description: Record user's travel information.
+    steps:
+      - collect: has_travelled
+        next:
+          - if: slots.has_travelled
+            then:
+              - collect: departure_date
+              - collect: return_date
+              - link: "save_employer_info"
+          - else:
+            - link: "save_employer_info"
+      
+
+  save_employer_info:
+    description: Record user's employer information.
+    steps:
+      - collect: is_self_employed
+        next:
+          - if: not slots.is_self_employed
+            then:
+              - collect: employer_name
+              - collect: work_start_date
+              - collect: hours_worked
+              - link: "save_work_info"
+          - else:
+            - link: "save_work_info"
+
+  save_work_info:
+    description: Record user's work information.
+    steps:
+      - collect: gross_earning
+      - collect: work_end_date
+
