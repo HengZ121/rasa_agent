@@ -50,6 +50,22 @@ nlg:
 model_groups:
   - id: rasa_command_generation_model
     models:
-      - provider: rasa
-        model: rasa/cmd_gen_codellama_13b_calm_demo
-        api_base: "https://tutorial-llm.rasa.ai"
+    - provider: cohere
+      model: command-r
+      api_key: ${COHERE_API_KEY}
+      temperature: 0.3
+
+# Replace code above as for rasa llm
+#     - provider: rasa
+#       model: rasa/cmd_gen_codellama_13b_calm_demo
+#       api_base: "https://tutorial-llm.rasa.ai"
+
+
+# Replace code above for OpenAI
+#     - provider: openai
+#       model: gpt-4-0613
+#       api_key: ${OPENAI_API_KEY}
+
+
+
+
