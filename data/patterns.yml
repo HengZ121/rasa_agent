@@ -10,7 +10,7 @@ flows:
     steps:
       - action: utter_ask_has_travelled
   pattern_employer:
-    description: Flow for handling employer information
+    description: Flow for handling employer information including starting date and hours worked
     name: pattern employer
     steps:
       - action: utter_ask_is_self_employed
@@ -19,3 +19,9 @@ flows:
     name: pattern work
     steps:
       - action: utter_enter_work_section
+
+  pattern_cannot_handle:
+    description: Response to user's greetings
+    name: pattern cannot handle
+    steps:
+      - action: utter_ask_has_travelled

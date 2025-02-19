@@ -92,3 +92,17 @@ responses:
           {{history}}
           {{current_input}}
           Suggested AI Response:
+
+  utter_clarification_options_rasa:
+    - text: "placeholder"
+      metadata:
+        rephrase: True
+        rephrase_prompt: |
+          Be very friendly.
+          Check if user has just started the conversation:
+            if so, the assistant should ask user if they have travelled outside Canada in the past two weeks
+            if no, the assistant  let user know their input is not understood and ask user to TRY AGAIN.
+          Context / previous conversation with the user:
+          {{history}}
+          {{current_input}}
+          Suggested AI Response:

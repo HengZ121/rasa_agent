@@ -7,7 +7,9 @@ flows:
           - if: slots.has_travelled
             then:
               - collect: departure_date
+                description: "slot departure_date should be formatted to the ISO standard (YYYY-MM-DD). Knowing today is Wednesday 2025-02-19"
               - collect: return_date
+                description: "slot return_date should be formatted to the ISO standard (YYYY-MM-DD). Knowing today is Wednesday 2025-02-19"
               - link: "save_employer_info"
           - else:
             - link: "save_employer_info"
@@ -21,7 +23,9 @@ flows:
           - if: not slots.is_self_employed
             then:
               - collect: employer_name
+                description: "An input of company name"
               - collect: work_start_date
+                description: "slot work_start_date should be formatted to the ISO standard (YYYY-MM-DD). Knowing today is Wednesday 2025-02-19"
               - collect: hours_worked
               - link: "save_work_info"
           - else:
@@ -31,5 +35,6 @@ flows:
     description: Record user's work information.
     steps:
       - collect: gross_earning
+        description: "An entire amount input, Formatted it with two decimal; for example: 80000 -> $80000.00"
       - collect: work_end_date
 
