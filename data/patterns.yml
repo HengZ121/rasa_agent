@@ -4,11 +4,11 @@ flows:
     name: pattern chitchat
     steps:
       - action: utter_free_chitchat_response
-  pattern_travel:
-    description: Flow for handling travel information; user's first yes or no answer should trigger this flow too
-    name: pattern travel
-    steps:
-      - action: utter_ask_has_travelled
+  # pattern_travel:
+  #   description: Flow for handling travel information; user's first yes or no answer should trigger this flow too
+  #   name: pattern travel
+  #   steps:
+  #     - action: utter_ask_has_travelled
   pattern_employer:
     description: Flow for handling employer information including starting date and hours worked
     name: pattern employer
@@ -21,7 +21,31 @@ flows:
       - action: utter_enter_work_section
 
   pattern_cannot_handle:
-    description: Response to user's greetings
+    description: Response to user's English greetings
     name: pattern cannot handle
     steps:
-      - action: utter_ask_has_travelled
+      - collect: speak_English
+        next:
+          - if: slots.speak_English
+            then:
+              - link: "save_travel_info"
+          - else:
+            - link: "enregistrer_info_voyage"
+
+  pattern_chitchat_fr:
+    description: Flux de réparation de conversation pour les interactions hors sujet qui ne perturberont pas la conversation principale. Ne doit pas répondre aux salutations ou à tout autre élément pour lequel un flux est défini.
+    name: pattern chitchat fr
+    steps:
+      - action: utter_free_chitchat_response_fr
+
+  pattern_employeur:
+    description: Flux de gestion des informations sur l'employeur, y compris la date de début et les heures travaillées.
+    name: pattern employeur
+    steps:
+      - action: utter_ask_is_self_employed_fr
+
+  pattern_travail:
+    description: Flux de gestion des informations sur le travail.
+    name: pattern travail
+    steps:
+      - action: utter_enter_work_section_fr

@@ -38,3 +38,42 @@ flows:
         description: "An entire amount input, Formatted it with two decimal; for example: 80000 -> $80000.00"
       - collect: work_end_date
 
+  enregistrer_info_voyage:
+    description: Enregistrer les informations de voyage de l'utilisateur.
+    steps:
+      - collect: has_travelled_fr
+        next:
+          - if: slots.has_travelled_fr
+            then:
+              - collect: departure_date_fr
+                description: "Le slot date_depart doit être formaté selon la norme ISO (AAAA-MM-JJ). Sachant qu'aujourd'hui est mercredi 2025-02-19."
+              - collect: return_date_fr
+                description: "Le slot date_retour doit être formaté selon la norme ISO (AAAA-MM-JJ). Sachant qu'aujourd'hui est mercredi 2025-02-19."
+              - link: "enregistrer_info_employeur"
+          - else:
+            - link: "enregistrer_info_employeur"
+
+  enregistrer_info_employeur:
+    description: Enregistrer les informations de l'employeur de l'utilisateur.
+    steps:
+      - collect: is_self_employed_fr
+        next:
+          - if: not slots.is_self_employed_fr
+            then:
+              - collect: employer_name_fr
+                description: "Un nom d'entreprise en entrée."
+              - collect: work_start_date_fr
+                description: "Le slot date_debut_travail doit être formaté selon la norme ISO (AAAA-MM-JJ). Sachant qu'aujourd'hui est mercredi 2025-02-19."
+              - collect: hours_worked_fr
+              - link: "enregistrer_info_travail"
+          - else:
+            - link: "enregistrer_info_travail"
+
+  enregistrer_info_travail:
+    description: Enregistrer les informations de travail de l'utilisateur.
+    steps:
+      - collect: gross_earning_fr
+        description: "Un montant total en entrée, formaté avec deux décimales ; par exemple : 80000 -> 80 000,00 $."
+      - collect: work_end_date_fr
+
+
