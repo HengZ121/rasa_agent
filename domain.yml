@@ -38,46 +38,46 @@ slots:
     mappings:
       - type: from_llm
 
-  has_travelled_fr:
-    type: bool
-    mappings:
-      - type: from_llm
-  departure_date_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  return_date_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  is_self_employed_fr:
-    type: bool
-    mappings:
-      - type: from_llm
-  employer_name_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  work_start_date_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  hours_worked_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  gross_earning_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  work_end_date_fr:
-    type: text
-    mappings:
-      - type: from_llm
-  speak_English:
-    type: bool
-    mappings:
-      - type: from_llm
+  # has_travelled_fr:
+  #   type: bool
+  #   mappings:
+  #     - type: from_llm
+  # departure_date_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # return_date_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # is_self_employed_fr:
+  #   type: bool
+  #   mappings:
+  #     - type: from_llm
+  # employer_name_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # work_start_date_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # hours_worked_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # gross_earning_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # work_end_date_fr:
+  #   type: text
+  #   mappings:
+  #     - type: from_llm
+  # speak_English:
+  #   type: bool
+  #   mappings:
+  #     - type: from_llm
 
 responses:
   utter_ask_has_travelled:
@@ -140,64 +140,64 @@ responses:
           {{current_input}}
           Suggested AI Response:
 
-  utter_ask_has_travelled_fr:
-    - text: "Avez-vous voyagé à l'extérieur du Canada au cours des deux dernières semaines ?"
-      metadata:
-        rephrase: True
+  # utter_ask_has_travelled_fr:
+  #   - text: "Avez-vous voyagé à l'extérieur du Canada au cours des deux dernières semaines ?"
+  #     metadata:
+  #       rephrase: True
 
-  utter_ask_departure_date_fr:
-    - text: "Quand avez-vous quitté le Canada ?"
+  # utter_ask_departure_date_fr:
+  #   - text: "Quand avez-vous quitté le Canada ?"
 
-  utter_ask_return_date_fr:
-    - text: "À quelle date êtes-vous revenu(e) au Canada ?"
+  # utter_ask_return_date_fr:
+  #   - text: "À quelle date êtes-vous revenu(e) au Canada ?"
 
-  utter_say_byebye_fr:
-    - text: "D'accord, au revoir !"
+  # utter_say_byebye_fr:
+  #   - text: "D'accord, au revoir !"
 
-  utter_wrong_date_fr:
-    - text: "Je ne trouve pas l'information sur la date dans votre réponse, pouvez-vous réessayer ?"
+  # utter_wrong_date_fr:
+  #   - text: "Je ne trouve pas l'information sur la date dans votre réponse, pouvez-vous réessayer ?"
 
-  utter_travelled_confirm_fr:
-    - text: "Je vous ai compris, j'espère que vous avez apprécié votre voyage !"
+  # utter_travelled_confirm_fr:
+  #   - text: "Je vous ai compris, j'espère que vous avez apprécié votre voyage !"
 
-  utter_ask_is_self_employed_fr:
-    - text: "Êtes-vous travailleur autonome ?"
+  # utter_ask_is_self_employed_fr:
+  #   - text: "Êtes-vous travailleur autonome ?"
 
-  utter_ask_employer_name_fr:
-    - text: "Pouvez-vous fournir le nom de votre employeur ?"
+  # utter_ask_employer_name_fr:
+  #   - text: "Pouvez-vous fournir le nom de votre employeur ?"
 
-  utter_ask_work_start_date_fr:
-    - text: "Quand votre travail à temps plein a-t-il commencé ?"
+  # utter_ask_work_start_date_fr:
+  #   - text: "Quand votre travail à temps plein a-t-il commencé ?"
 
-  utter_ask_hours_worked_fr:
-    - text: "Combien d'heures avez-vous travaillé pour cet employeur ?"
+  # utter_ask_hours_worked_fr:
+  #   - text: "Combien d'heures avez-vous travaillé pour cet employeur ?"
 
-  utter_ask_gross_earning_fr:
-    - text: "Quel est votre revenu brut ?"
+  # utter_ask_gross_earning_fr:
+  #   - text: "Quel est votre revenu brut ?"
 
-  utter_ask_work_end_date_fr:
-    - text: "Quand votre travail a-t-il pris fin ?"
+  # utter_ask_work_end_date_fr:
+  #   - text: "Quand votre travail a-t-il pris fin ?"
 
-  utter_enter_work_section_fr:
-    - text: "Super ! Parlons de votre travail."
+  # utter_enter_work_section_fr:
+  #   - text: "Super ! Parlons de votre travail."
 
-  utter_ask_speak_English:
-    - text: "Do you speak English? Ou parlez-vous le francais?"
-      buttons:
-      - title: "English"
-        payload: "/SetSlots(speak_English=True)"
-      - title: "Français"
-        payload: "/SetSlots(speak_English=False)"
-  utter_free_chitchat_response_fr:
-    - text: "placeholder"
-      metadata:
-        rephrase: True
-        rephrase_prompt: |
-          Soyez très amical.
-          Vérifiez si l'utilisateur vient de commencer la conversation :
-            si oui, l'assistant doit demander à l'utilisateur s'il a voyagé à l'extérieur du Canada au cours des deux dernières semaines.
-            si non, l'assistant doit demander à l'utilisateur de RÉESSAYER.
-          Contexte / conversation précédente avec l'utilisateur :
-          {{history}}
-          {{current_input}}
-          Réponse suggérée par l'IA :
+  # utter_ask_speak_English:
+  #   - text: "Do you speak English? Ou parlez-vous le francais?"
+  #     buttons:
+  #     - title: "English"
+  #       payload: "/SetSlots(speak_English=True)"
+  #     - title: "Français"
+  #       payload: "/SetSlots(speak_English=False)"
+  # utter_free_chitchat_response_fr:
+  #   - text: "placeholder"
+  #     metadata:
+  #       rephrase: True
+  #       rephrase_prompt: |
+  #         Soyez très amical.
+  #         Vérifiez si l'utilisateur vient de commencer la conversation :
+  #           si oui, l'assistant doit demander à l'utilisateur s'il a voyagé à l'extérieur du Canada au cours des deux dernières semaines.
+  #           si non, l'assistant doit demander à l'utilisateur de RÉESSAYER.
+  #         Contexte / conversation précédente avec l'utilisateur :
+  #         {{history}}
+  #         {{current_input}}
+  #         Réponse suggérée par l'IA :
