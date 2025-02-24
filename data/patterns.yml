@@ -13,18 +13,17 @@ flows:
     description: Flow for handling employer information including starting date and hours worked
     name: pattern employer
     steps:
-      - action: utter_ask_is_self_employed
+      - action: utter_ask_work_for_self
   pattern_work:
     description: Flow for handling work information
     name: pattern work
     steps:
       - action: utter_enter_work_section
 
-  pattern_cannot_handle:
-    description: Response to user's English greetings
-    name: pattern cannot handle
+  pattern_clarification:
+    description: ask user their travel information
+    name: pattern clarification
     steps:
-      - collect: has_travelled
       - link: "save_travel_info"
       # - collect: speak_English
       #   next:

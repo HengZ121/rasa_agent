@@ -1,8 +1,10 @@
 flows:
   save_travel_info:
-    description: Record user's travel information.
+    description: Record user's travel information and detect user language
     steps:
       - collect: has_travelled
+      - collect: speak_french
+        description: "Based on previous conversation, if user speaks French, set this value to true; otherwise, set this value to false; "
         next:
           - if: slots.has_travelled
             then:
@@ -18,15 +20,16 @@ flows:
   save_employer_info:
     description: Record user's employer information.
     steps:
-      - collect: is_self_employed
+      - collect: work_for_self
         next:
-          - if: not slots.is_self_employed
+          - if: not slots.work_for_self
             then:
               - collect: employer_name
-                description: "An input of company name"
+                description: "The name of user's employer, a company"
               - collect: work_start_date
                 description: "slot work_start_date should be formatted to the ISO standard (YYYY-MM-DD). Knowing today is Wednesday 2025-02-19"
               - collect: hours_worked
+                description: "An input of number, formatted it with no decimal; for example: 8000.00 hours -> 8000"
               - link: "save_work_info"
           - else:
             - link: "save_work_info"
@@ -37,6 +40,7 @@ flows:
       - collect: gross_earning
         description: "An entire amount input, Formatted it with two decimal; for example: 80000 -> $80000.00"
       - collect: work_end_date
+      - action: utter_say_byebye
 
   # enregistrer_info_voyage:
   #   description: Enregistrer les informations de voyage de l'utilisateur.

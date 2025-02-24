@@ -53,7 +53,7 @@ model_groups:
   - id: rasa_command_generation_model
     models:
     - provider: cohere
-      model: command-r
+      model: command-r-08-2024
       api_key: ${COHERE_API_KEY}
       temperature: 0.3
 

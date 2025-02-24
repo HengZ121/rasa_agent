@@ -13,7 +13,7 @@ slots:
     type: text
     mappings:
       - type: from_llm
-  is_self_employed:
+  work_for_self:
     type: bool
     mappings:
       - type: from_llm
@@ -37,47 +37,11 @@ slots:
     type: text
     mappings:
       - type: from_llm
+  speak_french:
+    type: bool
+    mappings:
+      - type: from_llm
 
-  # has_travelled_fr:
-  #   type: bool
-  #   mappings:
-  #     - type: from_llm
-  # departure_date_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # return_date_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # is_self_employed_fr:
-  #   type: bool
-  #   mappings:
-  #     - type: from_llm
-  # employer_name_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # work_start_date_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # hours_worked_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # gross_earning_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # work_end_date_fr:
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
-  # speak_English:
-  #   type: bool
-  #   mappings:
-  #     - type: from_llm
 
 responses:
   utter_ask_has_travelled:
@@ -86,7 +50,7 @@ responses:
         rephrase: True
 
   utter_ask_departure_date:
-    - text: "When did you leave Canada?"
+    - text: "On which date you left Canada?"
       metadata:
         rephrase: True
 
@@ -98,6 +62,9 @@ responses:
   utter_say_byebye:
     - text: "Okay, bye!"
 
+  utter_ask_speak_french:
+    - text: ""
+
   utter_wrong_date:
     - text: "I cannot find the date information in your response, can you please try again?"
 
@@ -105,8 +72,8 @@ responses:
     - text: "Got you, I hope you enjoyed your trip!"
 
 
-  utter_ask_is_self_employed:
-    - text: "Are you self-employed?"
+  utter_ask_work_for_self:
+    - text: "Do you work for yourself?"
   
   utter_ask_employer_name:
     - text: "Can you please provide the name of your employer?"
